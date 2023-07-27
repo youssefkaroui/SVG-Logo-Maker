@@ -12,11 +12,11 @@ function promptUser() {
                 validate: function (text){
                     if (text.length > 3) {
                         console.log("Your logo should have no more than 3 characters, please try again");
-                        return false; 
+                        promptUser();
                     }
                     else if (text.length === 0) {
                         console.log("Your logo should have at least one character");
-                        return false;
+                        promptUser();
                     }
                     else {
                         return true;
@@ -34,8 +34,16 @@ function promptUser() {
             {
                 type:"list",
                 name:"shape",
-                message:"what shape would you like your logo to be?"
+                message:"what shape would you like your logo to be?",
+                choices:["Triangle", "Square", "Circle"]
+            },
+            {
+                type:"input",
+                name:"shapeColor",
+                message:"What would you like the shape color to be?"
             }
         ])
-        
+ 
+       
+        writeToFile("logo.svg", answers);
 }
