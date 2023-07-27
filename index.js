@@ -47,3 +47,17 @@ function promptUser() {
        
         writeToFile("logo.svg", answers);
 }
+
+function writeToFile(fileName, answers) {
+    // empty string to insert the svg container in
+    var svgContainer="";
+    // creating logo container and setting wisrh and height
+    svgContainer= '<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">';
+    // <g> tag to hold the text inside the container 
+    svgContainer += "<g>";
+    // settig the logo shape here according the use input 
+    svgContainer += `${answers.shape}`;
+
+    
+
+}
